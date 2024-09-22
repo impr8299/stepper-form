@@ -1,0 +1,1 @@
+export const StepFormData = (state) => state?.stepForm.restaurantData
