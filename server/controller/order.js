@@ -163,48 +163,6 @@ exports.store_order = async (req,res)=>{
     }
 }
 
-exports.pending_order = async (req,res)=>{
-    try{
-
-        let orderdata = await Order.findOne({status:"pending"}).sort({createdAt : -1})
-      
-
-        res.status(200).send({
-            data : orderdata,
-            message : "Order fetched Succesfully.",
-            status : "success"
-        })
-    }
-    catch(err){
-        res.status(400).send({
-            data : {},
-            message : err.message,
-            status : "failed"
-        })
-    }
-}
-
-exports.all_order = async (req,res)=>{
-    try{
-
-        let orderdata = await Order.find({}).sort({createdAt : -1})
-      
-
-        res.status(200).send({
-            data : orderdata,
-            message : "Order fetched Succesfully.",
-            status : "success"
-        })
-    }
-    catch(err){
-        res.status(400).send({
-            data : {},
-            message : err.message,
-            status : "failed"
-        })
-    }
-}
-
 exports.export_all_order = async (req,res)=>{
     try{
 
